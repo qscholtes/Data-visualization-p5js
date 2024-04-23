@@ -162,8 +162,11 @@ function ClimateChange() {
         // Draw background gradient to represent colour temperature of
         // the current year.
         noStroke();
-        // fill( ??? );
-        // rect( ??? );
+        fill(this.mapTemperatureToColour(current.temperature) );
+        rect(this.mapYearToWidth(previous.year),  // x-coordinate
+        this.layout.topMargin,               // y-coordinate (top of the plot area)
+        segmentWidth,                        // width of the rectangle (equal to segmentWidth)
+        this.layout.plotHeight());           // height of the rectangle (equal to the height of the plot area)
 
         // Draw line segment connecting previous year to current
         // year temperature.

@@ -77,14 +77,11 @@ function PayGapByJob2017() {
     stroke(0);
     strokeWeight(1);
 
-    for (i = 0; i < this.data.getRowCount(); i++) {
-      // Draw an ellipse for each point.
-      // x = propFemale
-      // y = payGap
-      // size = numJobs
-      ellipse(
-        /// ???
-      );
+    for (var i = 0; i < this.data.getRowCount(); i++) {
+      x = map(propFemale[i], propFemaleMin, propFemaleMax, this.pad, width - this.pad);
+      y = map(payGap[i], payGapMin, payGapMax, height - this.pad, this.pad);
+      size = map(numJobs[i], numJobsMin, numJobsMax, this.dotSizeMin, this.dotSizeMax);
+      ellipse(x, y, size, size);
     }
   };
 
